@@ -20,21 +20,21 @@ _________________
 
 WEEK_LIST = ['月', '火', '水', '木', '金', '土', '日']
 SUBJECT_LIST = ['Python', '数学', '機械学習', '深層学習','エンジニアプロジェクト']
-save_study_count = 1
+save_subject_list = 1
 
 def output_schedule(study_time_list):
     '''今週の勉強予定を出力します'''
-    global save_study_count #無いとローカル変数と
-    for day, time in zip(WEEK_LIST, study_time_list):
-        if time == 0:
+    global save_subject_list #無いとprint後?ローカル変数と判定されてしまう
+    for day, study_time in zip(WEEK_LIST, study_time_list):
+        if study_time == 0:
             print("{}曜日は、お休みです。".format(day))
         else:
-            print("{}曜日は、{}時間勉強する予定です。".format(day, time))
-        for count in range(time):
-            print("{}限目 {}".format(count+1, SUBJECT_LIST[save_study_count]))
-            save_study_count += 1
-            if save_study_count == 5:
-                save_study_count = 0
+            print("{}曜日は、{}時間勉強する予定です。".format(day, study_time))
+        for time_count in range(study_time):
+            print("{}限目 {}".format(time_count+1, SUBJECT_LIST[save_subject_list]))
+            save_subject_list += 1
+            if save_subject_list == 5:
+                save_subject_list = 0
 
 
 def main():
@@ -50,7 +50,7 @@ if __name__ == '__main__':
 """
 [my メモ]
 WEEK_LISTを順に取得 @1
-study_time_listを順に取得 @1に連動　_もし値が0ならholidayにする。
+study_study_time_listを順に取得 @1に連動　_もし値が0ならholidayにする。
 取得した回数分だけSUBJECT_LISTを順に取得する
 ＿なぜか数学から順にスタートして最後までいったら頭に戻る
 次の日の授業は前日の最後の次の授業から始まる
