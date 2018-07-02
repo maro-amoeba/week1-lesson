@@ -20,11 +20,10 @@ _________________
 
 WEEK_LIST = ['月', '火', '水', '木', '金', '土', '日']
 SUBJECT_LIST = ['Python', '数学', '機械学習', '深層学習','エンジニアプロジェクト']
-save_subject_list = 1
 
 def output_schedule(study_time_list):
     '''今週の勉強予定を出力します'''
-    global save_subject_list #無いとprint後?ローカル変数と判定されてしまう
+    save_subject_list = 1
     for day, study_time in zip(WEEK_LIST, study_time_list):
         if study_time == 0:
             print("{}曜日は、お休みです。".format(day))
