@@ -14,3 +14,5 @@ if len(str(result_time)) == 1:
     print(month +"/"+ str(result_day) +" 0"+ str(result_time) +":"+ minuts)
 else:
     print(month +"/"+ str(result_day) +" "+ str(result_time) +":"+ minuts)
+
+#test
