@@ -1,18 +1,9 @@
-a = input()
-b = a.split()
-day = b[0][3:5]
-time = b[1][0:2]
+import re
 
-c = int(time) // 24
-result_day = c + int(day)
-result_time = int(time) % 24
+data = input()
+data = re.sub("[^0-9]"," ",data).split()
 
-month = b[0][0:2]
-minuts = b[1][3:5]
+data[1] = str(int(data[2]) // 24 + int(data[1])).zfill(2)
+data[2] = str(int(data[2]) % int(24)).zfill(2)
 
-if len(str(result_time)) == 1:
-    print(month +"/"+ str(result_day) +" 0"+ str(result_time) +":"+ minuts)
-else:
-    print(month +"/"+ str(result_day) +" "+ str(result_time) +":"+ minuts)
-
-#test
+print("{0[0]}/{0[1]} {0[2]}:{0[3]}".format(data))
